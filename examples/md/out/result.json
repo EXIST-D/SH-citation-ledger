@@ -1,0 +1,615 @@
+{
+ "case_id": null,
+ "status": "success",
+ "manuscript": {
+  "files": [
+   "manuscript.md"
+  ],
+  "text": "# Green roofs and cooling loads in terraced housing\n\n## 1 Introduction\n\nRooftop vegetation has been studied as a passive cooling measure for several decades [1]. Early field campaigns reported surface temperature reductions of more than 20 K on sunny afternoons [2,3], although the reductions measured inside buildings were far smaller [4]. Sedum roofs are known to tolerate drought better than grass roofs [5]. Irrigation raises the benefit further but increases water demand [6]. Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale [7], and two independent teams reached similar conclusions [1, 4, 6, 8]. Little is known about terraced housing in humid climates.\n\n## 2 Methods\n\nWe instrumented 12 terraced houses in the fictional town of Alder Vale during 2023. Indoor air temperature was logged every 10 minutes. Substrate moisture followed the protocol of Okafor and Lindqvist [3]. Cooling energy was estimated from compressor run time following the method described in [9].\n\n## 3 Results\n\nGreen-roof houses used 14% less cooling energy than matched controls over the summer. The effect was largest during heatwaves and smallest in the shoulder months. A sensitivity analysis showed that the result is robust to the choice of control houses.\n\n## References\n\n[1] Varga, P. (2005). *Passive cooling of buildings by roof gardens*. Fictional Press.\n[2] Okafor, T., & Lindqvist, M. (2011). Surface temperatures of vegetated roofs in a humid subtropical city. *Journal of Imaginary Urban Climate*, *14*(2), 101–115. https://doi.org/10.9999/jiuc.2011.014\n[3] Okafor, T., & Lindqvist, M. (2012). Substrate moisture and roof surface temperature. *J. Imag. Urban Clim.*, *15*(1), 20–33.\n[4] Brandt, L. (2016). Indoor temperature effects of green roofs: a field study. *Journal of Imaginary Urban Climate*, *19*(4), 301–317.\n[5] Zhou, W., & Brandt, L. (2021). Evapotranspiration from sedum roofs under drought. *Annals of Fictional Building Science*, *4*(2), 45–60.\n[6] Nakamura, H., Silva, R., & Osei, K. (2018). Irrigation strategies for extensive green roofs. *Building and Water Review*, *9*, 55–70.\n[7] Haddad, S., & Moreau, C. (2023). Neighbourhood-scale cooling savings from roof vegetation. *Journal of Imaginary Urban Climate*, *26*(1), 1–19. https://doi.org/10.9999/jiuc.2023.026\n[8] Lindqvist, M., Okafor, T., & Brandt, L. (2020). Meta-analysis of green roof field studies. *Annals of Fictional Building Science*, *3*(1), 1–30.\n[9] Moreau, C. (2019). Calibrating building energy models with sparse sensors. *Annals of Fictional Building Science*, *2*(2), 88–101.\n"
+ },
+ "references": {
+  "style": "apa7",
+  "entries": [
+   "[1] Varga, P. (2005). *Passive cooling of buildings by roof gardens*. Fictional Press.",
+   "[2] Okafor, T., & Lindqvist, M. (2011). Surface temperatures of vegetated roofs in a humid subtropical city. *Journal of Imaginary Urban Climate*, *14*(2), 101–115. https://doi.org/10.9999/jiuc.2011.014",
+   "[3] Okafor, T., & Lindqvist, M. (2012). Substrate moisture and roof surface temperature. *J. Imag. Urban Clim.*, *15*(1), 20–33.",
+   "[4] Brandt, L. (2016). Indoor temperature effects of green roofs: a field study. *Journal of Imaginary Urban Climate*, *19*(4), 301–317.",
+   "[5] Zhou, W., & Brandt, L. (2021). Evapotranspiration from sedum roofs under drought. *Annals of Fictional Building Science*, *4*(2), 45–60.",
+   "[6] Nakamura, H., Silva, R., & Osei, K. (2018). Irrigation strategies for extensive green roofs. *Building and Water Review*, *9*, 55–70.",
+   "[7] Haddad, S., & Moreau, C. (2023). Neighbourhood-scale cooling savings from roof vegetation. *Journal of Imaginary Urban Climate*, *26*(1), 1–19. https://doi.org/10.9999/jiuc.2023.026",
+   "[8] Lindqvist, M., Okafor, T., & Brandt, L. (2020). Meta-analysis of green roof field studies. *Annals of Fictional Building Science*, *3*(1), 1–30.",
+   "[9] Moreau, C. (2019). Calibrating building energy models with sparse sensors. *Annals of Fictional Building Science*, *2*(2), 88–101."
+  ],
+  "files": [
+   "references.apa7.txt",
+   "references.bib",
+   "references.ris"
+  ]
+ },
+ "change_log": {
+  "citation_changes": [
+   {
+    "instance": "C001",
+    "sid": "S003",
+    "old": "[3]",
+    "new": "[1]",
+    "kind": "renumber",
+    "entries": [
+     "varga2005"
+    ]
+   },
+   {
+    "instance": "C002",
+    "sid": "S004",
+    "old": "[1,2]",
+    "new": "[2,3]",
+    "kind": "renumber",
+    "entries": [
+     "okafor2011",
+     "L2"
+    ]
+   },
+   {
+    "instance": "C003",
+    "sid": "S004",
+    "old": "[5]",
+    "new": "[4]",
+    "kind": "renumber",
+    "entries": [
+     "L5"
+    ]
+   },
+   {
+    "instance": "NS0059",
+    "sid": "S005",
+    "old": "",
+    "new": "[5]",
+    "kind": "insert",
+    "entries": [
+     "zhou2021"
+    ]
+   },
+   {
+    "instance": "C004",
+    "sid": "S006",
+    "old": "[4]",
+    "new": "[6]",
+    "kind": "renumber",
+    "entries": [
+     "ref003"
+    ]
+   },
+   {
+    "instance": "C006",
+    "sid": "S007",
+    "old": "[3, 4, 5, 6]",
+    "new": "[1, 4, 6, 8]",
+    "kind": "renumber",
+    "entries": [
+     "varga2005",
+     "ref003",
+     "L5",
+     "L6"
+    ]
+   },
+   {
+    "instance": "C007",
+    "sid": "S011",
+    "old": "[2]",
+    "new": "[3]",
+    "kind": "renumber",
+    "entries": [
+     "L2"
+    ]
+   },
+   {
+    "instance": "C008",
+    "sid": "S012",
+    "old": "[8]",
+    "new": "[9]",
+    "kind": "renumber",
+    "entries": [
+     "ref002"
+    ]
+   },
+   {
+    "instance": "C009",
+    "sid": "S016",
+    "old": "[9]",
+    "new": "",
+    "kind": "remove",
+    "entries": []
+   }
+  ],
+  "merges": [
+   {
+    "canonical": "haddad2022",
+    "members": [
+     "haddad2022",
+     "ref001",
+     "L7"
+    ],
+    "reason": "same DOI 10.9999/jiuc.2023.026; identical normalised title, same first author (haddad), years 2023 / 2022; one entry is a preprint (arXiv / working paper) and the other a published version: one work, canonical = the published version; identical normalised title, same first author (haddad), years 202",
+    "filled": [
+     [
+      "arxiv",
+      "L7"
+     ]
+    ],
+    "conflicts": [
+     {
+      "field": "year",
+      "kept": "2023",
+      "other": "2022",
+      "from": "L7"
+     }
+    ]
+   }
+  ],
+  "uncited_dropped": [],
+  "numbering_map": [
+   {
+    "old_number": 1,
+    "entry": "okafor2011",
+    "canonical": "okafor2011",
+    "new_number": 2,
+    "status": "renumbered"
+   },
+   {
+    "old_number": 2,
+    "entry": "L2",
+    "canonical": "L2",
+    "new_number": 3,
+    "status": "renumbered"
+   },
+   {
+    "old_number": 3,
+    "entry": "varga2005",
+    "canonical": "varga2005",
+    "new_number": 1,
+    "status": "renumbered"
+   },
+   {
+    "old_number": 4,
+    "entry": "ref003",
+    "canonical": "ref003",
+    "new_number": 6,
+    "status": "renumbered"
+   },
+   {
+    "old_number": 5,
+    "entry": "L5",
+    "canonical": "L5",
+    "new_number": 4,
+    "status": "renumbered"
+   },
+   {
+    "old_number": 6,
+    "entry": "L6",
+    "canonical": "L6",
+    "new_number": 8,
+    "status": "renumbered"
+   },
+   {
+    "old_number": 7,
+    "entry": "L7",
+    "canonical": "haddad2022",
+    "new_number": 7,
+    "status": "merged into haddad2022"
+   },
+   {
+    "old_number": 10,
+    "entry": "ref002",
+    "canonical": "ref002",
+    "new_number": 9,
+    "status": "renumbered"
+   }
+  ],
+  "inserted": [
+   {
+    "instance": "NS0059",
+    "sid": "S005",
+    "old": "",
+    "new": "[5]",
+    "kind": "insert",
+    "entries": [
+     "zhou2021"
+    ]
+   }
+  ],
+  "removed": [
+   {
+    "instance": "C009",
+    "sid": "S016",
+    "old": "[9]",
+    "new": "",
+    "kind": "remove",
+    "entries": []
+   }
+  ]
+ },
+ "numbering_map": [
+  {
+   "old_number": 1,
+   "entry": "okafor2011",
+   "canonical": "okafor2011",
+   "new_number": 2,
+   "status": "renumbered"
+  },
+  {
+   "old_number": 2,
+   "entry": "L2",
+   "canonical": "L2",
+   "new_number": 3,
+   "status": "renumbered"
+  },
+  {
+   "old_number": 3,
+   "entry": "varga2005",
+   "canonical": "varga2005",
+   "new_number": 1,
+   "status": "renumbered"
+  },
+  {
+   "old_number": 4,
+   "entry": "ref003",
+   "canonical": "ref003",
+   "new_number": 6,
+   "status": "renumbered"
+  },
+  {
+   "old_number": 5,
+   "entry": "L5",
+   "canonical": "L5",
+   "new_number": 4,
+   "status": "renumbered"
+  },
+  {
+   "old_number": 6,
+   "entry": "L6",
+   "canonical": "L6",
+   "new_number": 8,
+   "status": "renumbered"
+  },
+  {
+   "old_number": 7,
+   "entry": "L7",
+   "canonical": "haddad2022",
+   "new_number": 7,
+   "status": "merged into haddad2022"
+  },
+  {
+   "old_number": 10,
+   "entry": "ref002",
+   "canonical": "ref002",
+   "new_number": 9,
+   "status": "renumbered"
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "haddad2022",
+   "members": [
+    "haddad2022",
+    "ref001",
+    "L7"
+   ],
+   "reason": "same DOI 10.9999/jiuc.2023.026; identical normalised title, same first author (haddad), years 2023 / 2022; one entry is a preprint (arXiv / working paper) and the other a published version: one work, canonical = the published version; identical normalised title, same first author (haddad), years 202",
+   "filled": [
+    [
+     "arxiv",
+     "L7"
+    ]
+   ],
+   "conflicts": [
+    {
+     "field": "year",
+     "kept": "2023",
+     "other": "2022",
+     "from": "L7"
+    }
+   ]
+  }
+ ],
+ "verification": {
+  "entries": {
+   "okafor2011": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "haddad2022": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "zhou2021": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "varga2005": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "ref001": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "ref002": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "ref003": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "L2": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "L5": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "L6": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   },
+   "L7": {
+    "status": "unchecked",
+    "structural": [],
+    "details": [
+     "offline: not looked up"
+    ],
+    "found_doi": null,
+    "found": null
+   }
+  },
+  "support": [
+   {
+    "sid": "S003",
+    "entry": "varga2005",
+    "overlap": 0.22,
+    "flag": "title_only_plausible",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Rooftop vegetation has been studied as a passive cooling measure for several decades .",
+    "title": "Passive cooling of buildings by roof gardens"
+   },
+   {
+    "sid": "S004",
+    "entry": "okafor2011",
+    "overlap": 0.07,
+    "flag": "title_only_plausible",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Early field campaigns reported surface temperature reductions of more than 20 K on sunny afternoons , although the reductions measured inside buildings were far",
+    "title": "Surface temperatures of vegetated roofs in a humid subtropical city"
+   },
+   {
+    "sid": "S004",
+    "entry": "L2",
+    "overlap": 0.13,
+    "flag": "title_only_plausible",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Early field campaigns reported surface temperature reductions of more than 20 K on sunny afternoons , although the reductions measured inside buildings were far",
+    "title": "Substrate moisture and roof surface temperature"
+   },
+   {
+    "sid": "S004",
+    "entry": "L5",
+    "overlap": 0.13,
+    "flag": "title_only_plausible",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Early field campaigns reported surface temperature reductions of more than 20 K on sunny afternoons , although the reductions measured inside buildings were far",
+    "title": "Indoor temperature effects of green roofs: a field study"
+   },
+   {
+    "sid": "S006",
+    "entry": "ref003",
+    "overlap": 0.29,
+    "flag": "title_only_plausible",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Irrigation raises the benefit further but increases water demand .",
+    "title": "Irrigation strategies for extensive green roofs"
+   },
+   {
+    "sid": "S007",
+    "entry": "haddad2022",
+    "overlap": 0.53,
+    "flag": "plausible",
+    "has_abstract": true,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale , and two independent teams reached similar conclusions .",
+    "title": "Neighbourhood-scale cooling savings from roof vegetation"
+   },
+   {
+    "sid": "S007",
+    "entry": "varga2005",
+    "overlap": 0.0,
+    "flag": "low_topic_overlap",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale , and two independent teams reached similar conclusions .",
+    "title": "Passive cooling of buildings by roof gardens"
+   },
+   {
+    "sid": "S007",
+    "entry": "ref003",
+    "overlap": 0.0,
+    "flag": "low_topic_overlap",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale , and two independent teams reached similar conclusions .",
+    "title": "Irrigation strategies for extensive green roofs"
+   },
+   {
+    "sid": "S007",
+    "entry": "L5",
+    "overlap": 0.0,
+    "flag": "low_topic_overlap",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale , and two independent teams reached similar conclusions .",
+    "title": "Indoor temperature effects of green roofs: a field study"
+   },
+   {
+    "sid": "S007",
+    "entry": "L6",
+    "overlap": 0.0,
+    "flag": "low_topic_overlap",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale , and two independent teams reached similar conclusions .",
+    "title": "Meta-analysis of green roof field studies"
+   },
+   {
+    "sid": "S011",
+    "entry": "L2",
+    "overlap": 0.33,
+    "flag": "title_only_plausible",
+    "has_abstract": false,
+    "numbers_missing": [],
+    "judgement": null,
+    "sentence": "Substrate moisture followed the protocol of Okafor and Lindqvist .",
+    "title": "Substrate moisture and roof surface temperature"
+   }
+  ],
+  "post_build": {
+   "entries_in_list": 9,
+   "citations": 10,
+   "inserted": 1,
+   "removed": 1,
+   "merges": 1,
+   "renumbered": 7,
+   "dropped_uncited": 0,
+   "post_build_problems": [],
+   "unresolved_left": 0
+  }
+ },
+ "human_review": [
+  {
+   "kind": "merge_conflict",
+   "entry": "haddad2022",
+   "detail": "year: kept '2023', other '2022'"
+  },
+  {
+   "kind": "support_unchecked",
+   "sentence": "S007",
+   "entry": "varga2005, ref003, L5, L6",
+   "detail": "low_topic_overlap (lexical screen only: read the sources)"
+  }
+ ],
+ "uncertainty": [
+  {
+   "kind": "merge_conflict",
+   "detail": "haddad2022: year: kept '2023', other '2022'"
+  },
+  {
+   "kind": "support_unchecked",
+   "detail": "S007 varga2005, ref003, L5, L6: low_topic_overlap (lexical screen only: read the sources)"
+  },
+  {
+   "kind": "references_unchecked_offline",
+   "detail": "verification ran offline: only structure was checked"
+  }
+ ],
+ "sources": [
+  {
+   "file": "manuscript.md",
+   "format": "md",
+   "tool": "citation-ledger 1.0.0"
+  }
+ ],
+ "files": [
+  "manuscript.md",
+  "references.apa7.txt",
+  "references.bib",
+  "references.ris",
+  "changes.md",
+  "changes.json",
+  "numbering_map.json",
+  "numbering_map.csv",
+  "ledger.json",
+  "review_checklist.md"
+ ],
+ "_meta": {
+  "generator": "citation-ledger/cl.py 1.0.0",
+  "contract_fields": [],
+  "unfilled_fields": [],
+  "contract_found": false,
+  "files": [
+   "manuscript.md",
+   "references.apa7.txt",
+   "references.bib",
+   "references.ris",
+   "changes.md",
+   "changes.json",
+   "numbering_map.json",
+   "numbering_map.csv",
+   "ledger.json",
+   "review_checklist.md"
+  ]
+ }
+}

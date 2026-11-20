@@ -1,0 +1,11 @@
+=== cite S003
+keys: haddad2022
+after: 10\%
+reason: suggest ranked haddad2022 first (abstract: cooling savings from roof vegetation)
+=== judge S003
+key: haddad2022
+verdict: partial
+note: the abstract reports 9 percent for covers above a third of roof area; the sentence says about 10%
+=== replace
+old: missing2020
+new: varga2005

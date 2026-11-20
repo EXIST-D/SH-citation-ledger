@@ -1,0 +1,47 @@
+$ cl.py run tex/paper.tex --out tex/out --work <work>
+{"ok": true, "work": "<work>", "file": "paper.tex", "format": "tex", "lang": "en", "paragraphs": 3, "sentences": 4, "citations": 4, "citation_styles": {"latex": 4}, "reference_list_entries": 0, "reference_list_label": "none", "libraries": [{"file": "library.bib", "format": "bibtex", "entries": 4}], "entries_total": 4, "library_matches": 0, "unresolved_citations": 1, "target_style": "ieee"}
+manuscript: paper.tex | libraries: library.bib
+Next: `audit`, `dedupe`, `needs`, `verify`, then decisions via `ingest`, then `build`.
+
+--- audit
+citations 4 ({'latex': 4}) | reference list 0 entries | entries total 4 | issues: 1
+  error unresolved_citation                x1   e.g. S004 marker \cite{haddad2022,missing2020} points to missing2020 that is not in the reference list / library
+duplicate clusters: 0 (run `dedupe`)
+
+--- dedupe
+0 duplicate cluster(s), 0 candidate pair(s) to confirm, 0 guarded pair(s) (similar but kept apart)
+auto: accepted 0 high-confidence merge(s); medium / candidate pairs need `=== merge` or `=== keepsep`
+
+--- needs
+1 sentence(s) without a citation that look like they need a source (hints, not truth; your own results do not need one):
+  S003 [P1] 1.0 causal / association claim: Green roofs reduce summer cooling energy by about 10\% in humid climates.
+  place a marker with `=== cite S012` / `keys: key1, key2` (default: before the sentence's final punctuation; `after: "phrase"` for a clause)
+
+--- suggest
+1 sentence(s) looked at; candidates are ranked by shared content words with title / abstract / keywords (no semantic model: read before you cite)
+  S003: Green roofs reduce summer cooling energy by about 10\% in humid climates.
+      haddad2022  0.33  shared: cool, energy, roof, summer | Neighbourhood-scale cooling savings from roof vegetation
+      okafor2011  0.15  shared: humid, roof | Surface temperatures of vegetated roofs in a humid subtropical city  [title only]
+      varga2005  0.13  shared: cool, roof | Passive cooling of buildings by roof gardens  [title only]
+
+--- verify
+verification of 4 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 4}
+  `verify W --online` looks DOIs / titles up at Crossref when the network is reachable (otherwise entries stay 'unchecked')
+
+--- support
+5 citation-reference pairs: {'title_only_plausible': 2, 'low_topic_overlap': 1, 'plausible': 2} | judged by you: 0
+  S002 zhou2021 low_topic_overlap (overlap 0.00): "Field campaigns measured large surface temperature reductions , and sensor networks now allow estima" <- "Evapotranspiration from sedum roofs under drought"
+  this is a lexical screen only: read the source for every pair you can; record the verdict with `=== judge S012` (key: ID, verdict: supported | partial | unsupported | unverifiable)
+
+--- build
+{"written": "<dir>/tex/out", "status": "partial", "entries_in_list": 4, "citations": 4, "inserted": 0, "removed": 0, "merges": 0, "renumbered": 0, "dropped_uncited": 0, "post_build_problems": [], "unresolved_left": 1, "style": "ieee", "unfilled_contract_fields": [], "contract_found": false}
+
+
+Nothing was inserted or judged automatically: `needs` lists sentences that may need sources, `support` lists doubtful pairs. Record your decisions with `ingest` and run `build` again (same --out).
+
+$ cl.py ingest <work> tex/decisions.txt
+recorded: cite 1, judge 1, replace 1
+
+$ cl.py build <work> --out tex/out
+{"written": "<dir>/tex/out", "status": "success", "entries_in_list": 4, "citations": 5, "inserted": 1, "removed": 0, "merges": 0, "renumbered": 0, "dropped_uncited": 0, "post_build_problems": [], "unresolved_left": 0, "style": "ieee", "unfilled_contract_fields": [], "contract_found": false}
+

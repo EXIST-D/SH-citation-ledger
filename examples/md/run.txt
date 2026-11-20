@@ -1,0 +1,62 @@
+$ cl.py run md/manuscript.md --lib md/library.bib --lib md/library.ris --out md/out --work <work>
+{"ok": true, "work": "<work>", "file": "manuscript.md", "format": "md", "lang": "en", "paragraphs": 9, "sentences": 17, "citations": 9, "citation_styles": {"bracket": 9}, "reference_list_entries": 8, "reference_list_label": "bracket", "libraries": [{"file": "library.bib", "format": "bibtex", "entries": 4}, {"file": "library.ris", "format": "ris", "entries": 3}], "entries_total": 11, "library_matches": 4, "unresolved_citations": 2, "target_style": "apa7"}
+manuscript: manuscript.md | libraries: library.bib, library.ris
+Next: `audit`, `dedupe`, `needs`, `verify`, then decisions via `ingest`, then `build`.
+
+--- audit
+citations 9 ({'bracket': 9}) | reference list 8 entries | entries total 11 | issues: 5
+  error unresolved_citation                x2   e.g. S012 marker [8] points to 8 that is not in the reference list / library
+  warn  uncited_reference                  x1   e.g. reference 10 (ref002 Moreau 2019) is never cited in the text
+  warn  numbering_not_by_first_appearance  x1   e.g. numbers are not in order of first citation (first citations appear as 3, 1, 2, 5, 4, 7, 6, 8, 9 ...; expected 
+  low   range_not_compressed               x1   e.g. S007 [3, 4, 5, 6] lists three or more consecutive numbers: write a range
+duplicate clusters: 1 (run `dedupe`)
+
+--- dedupe
+1 duplicate cluster(s), 0 candidate pair(s) to confirm, 0 guarded pair(s) (similar but kept apart)
+CLUSTER 1 [high, work pair: keep the published version] canonical haddad2022 <- ref001, L7
+    haddad2022 ~ ref001: same DOI 10.9999/jiuc.2023.026
+    haddad2022 ~ L7: identical normalised title, same first author (haddad), years 2023 / 2022; one entry is a preprint (arXiv / working paper) and the other a published version: one work, canonical = the published version
+    ref001 ~ L7: identical normalised title, same first author (haddad), years 2023 / 2022; one entry is a preprint (arXiv / working paper) and the other a published version: one work, canonical = the published version
+    CONFLICT year: kept '2023' vs '2022' (L7)
+      - haddad2022: Neighbourhood-scale cooling savings from roof vegetation | Haddad; Moreau | Journal of Imaginary Urban Cli 2023
+      - ref001: Neighbourhood-scale cooling savings from roof vegetation | Haddad; Moreau | J. Imag. Urban Clim. 2023
+      - L7: Neighbourhood-scale cooling savings from roof vegetation | Haddad; Moreau | arXiv 2022
+auto: accepted 1 high-confidence merge(s); medium / candidate pairs need `=== merge` or `=== keepsep`
+
+--- needs
+1 sentence(s) without a citation that look like they need a source (hints, not truth; your own results do not need one):
+  S014 [P7] 1.0 quantitative statement: Green-roof houses used 14% less cooling energy than matched controls over the summer.
+  place a marker with `=== cite S012` / `keys: key1, key2` (default: before the sentence's final punctuation; `after: "phrase"` for a clause)
+
+--- suggest
+1 sentence(s) looked at; candidates are ranked by shared content words with title / abstract / keywords (no semantic model: read before you cite)
+  S014: Green-roof houses used 14% less cooling energy than matched controls over the summer.
+      haddad2022  0.33  shared: cool, energy, roof, summer | Neighbourhood-scale cooling savings from roof vegetation
+      varga2005  0.13  shared: cool, roof | Passive cooling of buildings by roof gardens  [title only]
+      ref003  0.12  shared: green, roof | Irrigation strategies for extensive green roofs  [title only]
+
+--- verify
+verification of 11 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 11}
+  `verify W --online` looks DOIs / titles up at Crossref when the network is reachable (otherwise entries stay 'unchecked')
+
+--- support
+11 citation-reference pairs: {'title_only_plausible': 6, 'plausible': 1, 'low_topic_overlap': 4} | judged by you: 0
+  S007 varga2005 low_topic_overlap (overlap 0.00): "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale " <- "Passive cooling of buildings by roof gardens"
+  S007 ref003 low_topic_overlap (overlap 0.00): "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale " <- "Irrigation strategies for extensive green roofs"
+  S007 L5 low_topic_overlap (overlap 0.00): "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale " <- "Indoor temperature effects of green roofs: a field study"
+  S007 L6 low_topic_overlap (overlap 0.00): "Recent work has combined sensor networks with simulation to estimate savings at neighbourhood scale " <- "Meta-analysis of green roof field studies"
+  this is a lexical screen only: read the source for every pair you can; record the verdict with `=== judge S012` (key: ID, verdict: supported | partial | unsupported | unverifiable)
+
+--- build
+{"written": "<dir>/md/out", "status": "partial", "entries_in_list": 7, "citations": 9, "inserted": 0, "removed": 0, "merges": 1, "renumbered": 6, "dropped_uncited": 1, "post_build_problems": ["reference list has 7 entries but 9 distinct numbers are cited"], "unresolved_left": 2, "style": "apa7", "unfilled_contract_fields": [], "contract_found": false}
+POST-BUILD PROBLEM: reference list has 7 entries but 9 distinct numbers are cited
+
+
+Nothing was inserted or judged automatically: `needs` lists sentences that may need sources, `support` lists doubtful pairs. Record your decisions with `ingest` and run `build` again (same --out).
+
+$ cl.py ingest <work> md/decisions.txt
+recorded: cite 1, replace 1, uncite 1, judge 1
+
+$ cl.py build <work> --out md/out
+{"written": "<dir>/md/out", "status": "success", "entries_in_list": 9, "citations": 10, "inserted": 1, "removed": 1, "merges": 1, "renumbered": 7, "dropped_uncited": 0, "post_build_problems": [], "unresolved_left": 0, "style": "apa7", "unfilled_contract_fields": [], "contract_found": false}
+

@@ -1,0 +1,46 @@
+$ cl.py run <work>/manuscript.docx --out zh/out --work <work>
+{"ok": true, "work": "<work>", "file": "manuscript.docx", "format": "docx", "lang": "zh", "paragraphs": 13, "sentences": 11, "citations": 7, "citation_styles": {"sup": 7}, "reference_list_entries": 7, "reference_list_label": "bracket", "libraries": [], "entries_total": 7, "library_matches": 0, "unresolved_citations": 1, "target_style": "gbt7714"}
+manuscript: manuscript.docx | libraries: (none)
+Next: `audit`, `dedupe`, `needs`, `verify`, then decisions via `ingest`, then `build`.
+
+--- audit
+citations 7 ({'sup': 7}) | reference list 7 entries | entries total 7 | issues: 4
+  error unresolved_citation                x1   e.g. S010 marker <sup>9</sup> points to 9 that is not in the reference list / library
+  warn  numbering_not_by_first_appearance  x1   e.g. numbers are not in order of first citation (first citations appear as 3, 1, 2, 5, 4, 7, 6, 9 ...; expected 1, 
+  warn  number_gap                         x1   e.g. numbers never cited between 1 and 9: 8
+  low   range_not_compressed               x1   e.g. S007 <sup>3,4,5,6</sup> lists three or more consecutive numbers: write a range
+duplicate clusters: 0 (run `dedupe`)
+
+--- dedupe
+0 duplicate cluster(s), 0 candidate pair(s) to confirm, 0 guarded pair(s) (similar but kept apart)
+auto: accepted 0 high-confidence merge(s); medium / candidate pairs need `=== merge` or `=== keepsep`
+
+--- needs
+2 sentence(s) without a citation that look like they need a source (hints, not truth; your own results do not need one):
+  S005 [P3] 1.5 prior-work claim (zh): 研究表明基质厚度决定了大部分热工效益。
+  S009 [P5] 1.0 quantitative statement (zh): 绿化屋顶住宅夏季制冷能耗比对照住宅低14%。
+  place a marker with `=== cite S012` / `keys: key1, key2` (default: before the sentence's final punctuation; `after: "phrase"` for a clause)
+
+--- suggest
+2 sentence(s) looked at; candidates are ranked by shared content words with title / abstract / keywords (no semantic model: read before you cite)
+  S005: 研究表明基质厚度决定了大部分热工效益。
+      L2  0.17  shared: 基, 度, 表, 质 | 基质含水量与屋面表面温度  [title only]
+      L5  0.16  shared: 度, 效, 研, 究 | 绿色屋顶的室内温度效应: 一项实地研究  [title only]
+      L6  0.13  shared: 分, 研, 究 | 绿色屋顶实地研究的元分析  [title only]
+  S009: 绿化屋顶住宅夏季制冷能耗比对照住宅低14%。
+      L7  0.17  shared: 化, 屋, 绿, 能, 顶 | 屋顶绿化的街区尺度节能量  [title only]
+
+--- verify
+verification of 7 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 7}
+  `verify W --online` looks DOIs / titles up at Crossref when the network is reachable (otherwise entries stay 'unchecked')
+
+--- support
+10 citation-reference pairs: {'no_text_to_check': 10} | judged by you: 0
+  this is a lexical screen only: read the source for every pair you can; record the verdict with `=== judge S012` (key: ID, verdict: supported | partial | unsupported | unverifiable)
+
+--- build
+{"written": "<dir>/zh/out", "status": "partial", "entries_in_list": 7, "citations": 7, "inserted": 0, "removed": 0, "merges": 0, "renumbered": 7, "dropped_uncited": 0, "post_build_problems": [], "unresolved_left": 1, "style": "gbt7714", "unfilled_contract_fields": [], "contract_found": false}
+
+
+Nothing was inserted or judged automatically: `needs` lists sentences that may need sources, `support` lists doubtful pairs. Record your decisions with `ingest` and run `build` again (same --out).
+

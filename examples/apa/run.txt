@@ -1,0 +1,42 @@
+$ cl.py run apa/manuscript.md --lib md/library.bib --lib md/library.ris --out apa/out --work <work>
+{"ok": true, "work": "<work>", "file": "manuscript.md", "format": "md", "lang": "en", "paragraphs": 5, "sentences": 6, "citations": 5, "citation_styles": {"authyear": 5}, "reference_list_entries": 4, "reference_list_label": "none", "libraries": [{"file": "library.bib", "format": "bibtex", "entries": 4}, {"file": "library.ris", "format": "ris", "entries": 3}], "entries_total": 8, "library_matches": 3, "unresolved_citations": 1, "target_style": "apa7"}
+manuscript: manuscript.md | libraries: library.bib, library.ris
+Next: `audit`, `dedupe`, `needs`, `verify`, then decisions via `ingest`, then `build`.
+
+--- audit
+citations 5 ({'authyear': 5}) | reference list 4 entries | entries total 8 | issues: 3
+  error unresolved_citation                x1   e.g. S005 marker (Moreau, 2019; Haddad & Moreau, 2022) points to Haddad & Moreau 2022 that is not in the reference list 
+  warn  ambiguous_author_year              x1   e.g. S003 Haddad and Moreau 2023: 2 candidates
+  warn  uncited_reference                  x1   e.g. reference 1 (L1 Brandt 2016) is never cited in the text
+duplicate clusters: 1 (run `dedupe`)
+
+--- dedupe
+1 duplicate cluster(s), 0 candidate pair(s) to confirm, 0 guarded pair(s) (similar but kept apart)
+CLUSTER 1 [certain] canonical haddad2022 <- ref001
+    haddad2022 ~ ref001: same DOI 10.9999/jiuc.2023.026
+      - haddad2022: Neighbourhood-scale cooling savings from roof vegetation | Haddad; Moreau | Journal of Imaginary Urban Cli 2023
+      - ref001: Neighbourhood-scale cooling savings from roof vegetation | Haddad; Moreau | J. Imag. Urban Clim. 2023
+auto: accepted 1 high-confidence merge(s); medium / candidate pairs need `=== merge` or `=== keepsep`
+
+--- needs
+0 sentence(s) without a citation that look like they need a source (hints, not truth; your own results do not need one):
+  place a marker with `=== cite S012` / `keys: key1, key2` (default: before the sentence's final punctuation; `after: "phrase"` for a clause)
+
+--- suggest
+0 sentence(s) looked at; candidates are ranked by shared content words with title / abstract / keywords (no semantic model: read before you cite)
+
+--- verify
+verification of 8 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 8}
+  `verify W --online` looks DOIs / titles up at Crossref when the network is reachable (otherwise entries stay 'unchecked')
+
+--- support
+6 citation-reference pairs: {'title_only_plausible': 4, 'plausible': 1, 'low_topic_overlap': 1} | judged by you: 0
+  S005 ref002 low_topic_overlap (overlap 0.00): "Savings in humid climates remain uncertain ." <- "Calibrating building energy models with sparse sensors"
+  this is a lexical screen only: read the source for every pair you can; record the verdict with `=== judge S012` (key: ID, verdict: supported | partial | unsupported | unverifiable)
+
+--- build
+{"written": "<dir>/apa/out", "status": "partial", "entries_in_list": 6, "citations": 5, "inserted": 0, "removed": 0, "merges": 1, "renumbered": 3, "dropped_uncited": 1, "post_build_problems": [], "unresolved_left": 1, "style": "apa7", "unfilled_contract_fields": [], "contract_found": false}
+
+
+Nothing was inserted or judged automatically: `needs` lists sentences that may need sources, `support` lists doubtful pairs. Record your decisions with `ingest` and run `build` again (same --out).
+

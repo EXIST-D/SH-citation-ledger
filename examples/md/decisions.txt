@@ -1,0 +1,13 @@
+=== cite S005
+keys: zhou2021
+reason: the abstract of zhou2021 reports the drought behaviour of sedum roofs (read in `show --refs`/`suggest`)
+=== replace
+old: 8
+new: ref002
+reason: the energy-model calibration paper is the method reference
+=== uncite S016
+keys: 9
+=== judge S005
+key: zhou2021
+verdict: supported
+note: abstract: sedum roofs lose less water than grass roofs during drought
