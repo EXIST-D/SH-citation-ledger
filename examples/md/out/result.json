@@ -331,34 +331,7 @@
     "found_doi": null,
     "found": null
    },
-   "zhou2021": {
-    "status": "unchecked",
-    "structural": [],
-    "details": [
-     "offline: not looked up"
-    ],
-    "found_doi": null,
-    "found": null
-   },
    "varga2005": {
-    "status": "unchecked",
-    "structural": [],
-    "details": [
-     "offline: not looked up"
-    ],
-    "found_doi": null,
-    "found": null
-   },
-   "ref001": {
-    "status": "unchecked",
-    "structural": [],
-    "details": [
-     "offline: not looked up"
-    ],
-    "found_doi": null,
-    "found": null
-   },
-   "ref002": {
     "status": "unchecked",
     "structural": [],
     "details": [
@@ -395,15 +368,6 @@
     "found": null
    },
    "L6": {
-    "status": "unchecked",
-    "structural": [],
-    "details": [
-     "offline: not looked up"
-    ],
-    "found_doi": null,
-    "found": null
-   },
-   "L7": {
     "status": "unchecked",
     "structural": [],
     "details": [

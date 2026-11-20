@@ -26,7 +26,7 @@ auto: accepted 1 high-confidence merge(s); medium / candidate pairs need `=== me
 0 sentence(s) looked at; candidates are ranked by shared content words with title / abstract / keywords (no semantic model: read before you cite)
 
 --- verify
-verification of 8 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 8}
+verification of 6 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 6}
   `verify W --online` looks DOIs / titles up at Crossref when the network is reachable (otherwise entries stay 'unchecked')
 
 --- support

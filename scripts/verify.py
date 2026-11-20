@@ -93,6 +93,10 @@ def crossref_record(msg):
 
 def lookup(r, timeout=10):
     """-> (status, details, found_record|None). Needs network."""
+    if not r["doi"] and bib.CJK.search(r["title"] or ""):
+        return "unchecked", ["Chinese-language title without a DOI: Crossref indexes few Chinese journals, so a miss would prove nothing; check CNKI / Wanfang by hand"], None
+    if not r["doi"] and r["type"] in ("book", "thesis", "report", "standard", "patent", "web", "newspaper"):
+        return "unchecked", ["%s without a DOI: not what Crossref indexes; check a library catalogue / the issuing body by hand" % r["type"]], None
     try:
         if r["doi"]:
             try:

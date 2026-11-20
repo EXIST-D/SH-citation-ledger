@@ -2,7 +2,7 @@
 
 | file | what |
 |---|---|
-| `test_all.py` | 54 regression tests (stdlib `unittest`): author splitting, every import format, text-entry parsing, marker detection, formatting, duplicate rules and guards, structural verification, fail-fast online verification, end-to-end md / tex / docx / author-year, contract fields, 40 generated manuscripts (invariants) and 40 manuscripts with seeded defects (audit = ground truth). `python3 dev/test_all.py [-v]` |
+| `test_all.py` | 55 regression tests (stdlib `unittest`): author splitting, every import format, text-entry parsing, marker detection, formatting, duplicate rules and guards, structural verification, fail-fast online verification, end-to-end md / tex / docx / author-year, contract fields, 40 generated manuscripts (invariants) and 40 manuscripts with seeded defects (audit = ground truth). `python3 dev/test_all.py [-v]` |
 | `format_eval.py [gbt7714\|apa7\|ieee] [N_worst]` | agreement of `fmt.py` with citeproc-py + the official CSL styles on the 226 items of the GB/T 7714-2015 CSL repository (needs `pip install --target dev/_deps citeproc-py lxml`) |
 | `dedupe_eval.py` | duplicate detection on the DBLP–ACM benchmark |
 | `oracle.py` | renders CSL-JSON with a CSL style (the oracle used by `format_eval.py`) |

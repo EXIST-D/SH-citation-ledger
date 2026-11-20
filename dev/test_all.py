@@ -274,6 +274,19 @@ class TestVerify(unittest.TestCase):
         self.assertEqual(len(calls), 2)
         self.assertTrue(all(v["status"] == "unchecked" for v in res.values()))
 
+    def test_chinese_and_books_without_doi_are_not_called_fabricated(self):
+        import urllib.request
+        orig = urllib.request.urlopen
+        urllib.request.urlopen = lambda *a, **k: (_ for _ in ()).throw(AssertionError("no lookup expected"))
+        try:
+            zh = bib.finish({**bib.new_record("t"), "id": "z", "title": "屋顶绿化研究", "year": "2020", "authors": bib.split_authors("张三"), "type": "journal", "container": "建筑学报"})
+            bk = bib.finish({**bib.new_record("t"), "id": "b", "title": "A handbook of roofs", "year": "2001", "authors": bib.split_authors("Doe, J."), "type": "book", "publisher": "Press"})
+            res = verify.check_all([zh, bk], online=True, timeout=1)
+        finally:
+            urllib.request.urlopen = orig
+        self.assertEqual({v["status"] for v in res.values()}, {"unchecked"})
+        self.assertIn("CNKI", res["z"]["details"][0])
+
     def test_offline_never_verified(self):
         r = bib.finish({**bib.new_record("t"), "title": "T", "year": "2020", "authors": bib.split_authors("A, B."), "type": "journal", "id": "x"})
         self.assertEqual(verify.check_all([r], online=False)["x"]["status"], "unchecked")

@@ -36,7 +36,7 @@ auto: accepted 1 high-confidence merge(s); medium / candidate pairs need `=== me
       ref003  0.12  shared: green, roof | Irrigation strategies for extensive green roofs  [title only]
 
 --- verify
-verification of 11 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 11}
+verification of 7 entries (offline: structure only, nothing is claimed as verified): {'unchecked': 7}
   `verify W --online` looks DOIs / titles up at Crossref when the network is reachable (otherwise entries stay 'unchecked')
 
 --- support

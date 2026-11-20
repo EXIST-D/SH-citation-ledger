@@ -26,7 +26,7 @@ scripts/segment.py, nlib.py, parse_pdf.py   读取 md/txt/tex/docx/pdf、句子�
 references/                      决定块格式、样式与实测一致率、导入导出格式、去重规则与基准、故障处置
 examples/                        自造稿件（Markdown / LaTeX / 中文 Word / APA 著者-年）+ 决定文件 + 真实运行输出
 GITHUB_URL.txt                   作品的 GitHub 公开链接
-dev/ （仅仓库）                  54 个回归测试、与 CSL 参考实现的格式对照、DBLP–ACM 去重评测、示例生成脚本
+dev/ （仅仓库）                  55 个回归测试、与 CSL 参考实现的格式对照、DBLP–ACM 去重评测、示例生成脚本
 ```
 
 ## 依赖与安装
@@ -49,7 +49,7 @@ python3 scripts/cl.py convert --lib refs.bib --style apa7 --dedupe --out refs.ap
 ## 实测（开发自测，不是平台成绩）
 | 项 | 结果 |
 |---|---|
-| 回归测试 | `python3 dev/test_all.py`：54 个测试通过，含 40 份随机生成稿件的不变量（重排前后每个标记指向同一篇、编号 1..N 且按首次出现、二次 build 幂等）和 40 份植入缺陷稿件（审计检出的无法解析/未引用数与植入数完全一致） |
+| 回归测试 | `python3 dev/test_all.py`：55 个测试通过，含 40 份随机生成稿件的不变量（重排前后每个标记指向同一篇、编号 1..N 且按首次出现、二次 build 幂等）和 40 份植入缺陷稿件（审计检出的无法解析/未引用数与植入数完全一致） |
 | 解析 | BibTeX / RIS / EndNote / CSL-JSON / NoteExpress 同一条目解析一致；GB/T、APA、IEEE、Vancouver 文本条目的类型/年/卷/期/页解析；多作者 `Family, I., Family, I., & Family, I.` |
 | 格式与 CSL 参考实现的一致率 | GB/T 7714-2015：168 条中 134 条逐字相同（80%，字符相似度 0.989；期刊 36/39）；APA 7：27/47（57%）；IEEE：28/47（60%）。这是**与 CSL 实现的一致**，不是与标准本身的一致；规则在这批条目上调过，对未见类型偏乐观；章节/报告/学位论文差距较大 |
 | 去重（DBLP–ACM 公开基准） | 自动合并 TP 2098 / FP 92 / FN 126：精确率 0.958、召回 0.943、F1 0.951；另有 193 对留给人确认（其中 61 对为真）。阈值在同一数据上调过，无基线对照 |

@@ -80,6 +80,7 @@ Budget (64 model requests, 900 s): one `run` call gives a complete, honest first
 | Several library files with clashing ids | ids get the file name suffix automatically; use the ids `show --refs` prints |
 | Manuscript has no reference list | numeric markers are resolved by library order (flagged as an assumption in `uncertainty`), a list is appended |
 | PDF manuscript | needs `pymupdf`, `pdfplumber` or `pypdf` in the environment; text is extracted to Markdown, the deliverable is Markdown, say so; if extraction fails the message says why: ask for / use another format |
+| Only libraries, no manuscript (convert / dedupe / format task) | `python3 $S convert --lib a.bib --lib b.ris --style gbt7714 [--dedupe] [--prefer zh\|en] [--format txt\|bib\|ris] --out refs.txt`; read its `merged duplicates:` line and report the rule for each merge from `dedupe` |
 | Entry cannot be parsed (`reference_not_parsed`) | keep its raw text, fix fields with `meta`, or report it |
 | Style not supported | tell the user which of GB/T 7714-2015, APA 7, IEEE, Vancouver is closest; do not fake another |
 | Tracked-changes docx cannot be previewed | no LibreOffice here: the `.docx` XML is valid but not rendered; say so |

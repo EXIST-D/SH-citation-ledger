@@ -821,8 +821,10 @@ def effective_entries(L, ops):
 def cmd_verify(a):
     doc, L, ops = load(a.work)
     ents = effective_entries(L, ops)
+    canon = alive_entries(L, ops)
     cited = {e for it in final_instances(doc, L, ops) for e in it["final_entries"]}
-    recs = [r for r in ents.values() if (r["id"] in cited or not a.cited_only)]
+    # merged-away duplicates are not looked up; library entries nobody cites only with --all
+    recs = [r for r in ents.values() if canon(r["id"]) == r["id"] and (r["id"] in cited or a.all)]
     res = verify.check_all(recs, online=a.online, timeout=a.timeout)
     jsave(os.path.join(a.work, "verification.json"), res)
     cnt = Counter(v["status"] for v in res.values())
@@ -1402,7 +1404,7 @@ def cmd_run(a):
     a.work = a.work or os.path.join(a.out, ".work")
     cmd_prepare(a)
     for fn, ns in ((cmd_audit, argparse.Namespace(work=a.work)), (cmd_dedupe, argparse.Namespace(work=a.work, auto=True)), (cmd_needs, argparse.Namespace(work=a.work, top=15)), (cmd_suggest, argparse.Namespace(work=a.work, sids=None, min_score=0.12)),
-                   (cmd_verify, argparse.Namespace(work=a.work, online=a.online, timeout=10, cited_only=False, verbose=False)), (cmd_support, argparse.Namespace(work=a.work))):
+                   (cmd_verify, argparse.Namespace(work=a.work, online=a.online, timeout=10, all=False, verbose=False)), (cmd_support, argparse.Namespace(work=a.work))):
         print("\n--- %s" % fn.__name__[4:])
         fn(ns)
     print("\n--- build")
@@ -1455,7 +1457,7 @@ def main(argv=None):
     p.add_argument("work")
     p.add_argument("--online", action="store_true")
     p.add_argument("--timeout", type=int, default=10)
-    p.add_argument("--cited-only", dest="cited_only", action="store_true")
+    p.add_argument("--all", action="store_true", help="also entries nothing cites")
     p.add_argument("-v", "--verbose", action="store_true")
     p = P("show", cmd_show)
     p.add_argument("work")
