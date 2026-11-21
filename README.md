@@ -71,3 +71,7 @@ python3 scripts/cl.py convert --lib refs.bib --style apa7 --dedupe --out refs.ap
 
 ## 复现
 `python3 dev/test_all.py`；格式对照与去重评测的数据来源与复现步骤见 `dev/README.md`。示例输出由 `dev/make_examples.py` 用真实命令生成，**是示例，不是任何评测案例的结果**。
+
+
+## 示例文件的后缀
+平台只接受部分文件类型作为 Skill 资源，所以示例里这些文件的名字后面加了 `.txt`：`examples/md/library.ris`。去掉 `.txt` 就是脚本实际读写的文件名；脚本本身的输出文件名没有变。
